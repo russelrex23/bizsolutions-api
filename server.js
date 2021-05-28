@@ -26,7 +26,15 @@ app.get("/api/status", function (req, res) {
     res.status(200).json({ status: "UP" });
 });
 
-app.post("/api/sendEmail", function (req, res) {
-    const { email, site } = req.body;
-    sendEmail(email, site);
+app.post("/api/sendEmail", async function (req, res) {
+
+    try {
+        const { email, site } = req.body;
+        await sendEmail(email, site);
+        res.status(200).json({message: "Email successfully sent!"});
+    }
+    catch(err) {
+        res.status(500).json({message: err});
+    }
+    
 });
