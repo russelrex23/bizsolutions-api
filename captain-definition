@@ -1,4 +1,4 @@
 {
     "schemaVersion" :2,
-    "imageName" :"nodejs:6.14.5"
+    "templateId": "node/v12.18.2"
 }
