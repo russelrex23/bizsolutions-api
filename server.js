@@ -19,8 +19,8 @@ const server = app.listen(process.env.PORT || 8080, function () {
 });
 
 app.get("", function (req, res) {
-    res.status(200).json({message: "Welcome to Bitsolutions API"});
-})
+    res.status(200).json({message: "Welcome to Bitsolutions API Sample"});
+});
 
 app.get("/api/status", function (req, res) {
     res.status(200).json({ status: "UP" });
