@@ -9,6 +9,7 @@ const express = require('express'),
     bodyParser = require('body-parser'),
     jsonwebtoken = require("jsonwebtoken");
 
+const cors = require('cors');
 const mongoose = require('mongoose');
 const option = {
     useNewUrlParser: true,
@@ -44,9 +45,11 @@ app.use(function(req, res, next) {
 const routes = require('../api/routes/userRoutes');
 routes(app);
 
-app.use(function(req, res) {
-    res.status(404).send({ url: req.originalUrl + ' not found' })
-});
+// app.use(function(req, res) {
+//     res.status(404).send({ url: req.originalUrl + ' not found' })
+// });
+
+app.use(cors());
 
 app.listen(port);
 
