@@ -2,15 +2,20 @@
   "name": "bizsolutions-api",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "api/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node api/server.js"
   },
   "author": "russelrex_23@yahoo.com",
   "license": "ISC",
   "dependencies": {
     "@sendgrid/mail": "^7.4.4",
+    "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.12.12",
+    "save": "^2.4.0"
   }
 }
