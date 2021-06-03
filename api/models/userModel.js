@@ -10,21 +10,21 @@ const mongoose = require('mongoose'),
 const UserSchema = new Schema({
     email: {
         type: String,
-        unique: true,
         lowercase: true,
-        trim: true,
-        required: true
+        trim: true
     },
     password: {
         type: String
     },
-    contact: {
-        type: String,
-        required: true
+    firstName: {
+        type: String
     },
-    address: {
-        type: String,
-        required: true
+    lastName: {
+        type: String
+    },
+    is_verified: {
+        type: Boolean,
+        default: false
     },
     created: {
         type: Date,
