@@ -7,6 +7,7 @@ const mongoose = require('mongoose'),
     sendEmail = require('../utils/sendEmail');
 
 exports.sign_up = function(req, res) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
     const newUser = new User(req.body);
     newUser.password = bcrypt.hashSync(req.body.password, 10);
     newUser.save(function(err, user) {
@@ -19,7 +20,7 @@ exports.sign_up = function(req, res) {
                 const { email, site } = req.body;
                 const token = {token: jwt.sign({ email: user.email, _id: user._id }, 'RESTFULAPIs') };
                 sendEmail(email, site, token);
-                res.json({message: "Email successfully sent!", token: token.token});
+                res.status(200).json({message: "Email successfully sent!", token: token.token});
             }
             catch(err) {
                 res.status(500).json({message: err});
